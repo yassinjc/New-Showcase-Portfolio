@@ -103,7 +103,7 @@ nav ul {
 a {
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.15em;
     color: white;
     font-weight: 500;
@@ -124,7 +124,7 @@ p {
 
 .contact {
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.15em;
     text-decoration: none;
     color: white;
@@ -197,7 +197,6 @@ p {
     justify-content: center;
 }
 
-
 .projects-track {
     display: flex;
     gap: clamp(16px, 2.5vw, 40px);
@@ -205,45 +204,109 @@ p {
     z-index: 1;
 }
 
-.project-card {
-    display: flex;
-    align-items: center;
+.project-card,
+.project-card-fix {
     flex: 0 0 auto;
     width: clamp(200px, 15vw, 270px);
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    gap: 8px;
     color: white;
+    text-decoration: none;
+}
+
+.project-card {
+    gap: 5px;
 }
 
 .project-card-fix {
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    width: clamp(200px, 15vw, 270px);
-    display: flex;
-    flex-direction: column;
     gap: 8px;
-    color: white;
 }
 
-.project-card-fix img {
+.project-media {
+    position: relative;
     width: 100%;
-    object-fit: cover;
-    display: flex;
+    overflow: hidden;
 }
 
-.project-card img {
+.project-media img {
     width: 100%;
     object-fit: cover;
-    display: flex;
+    display: block;
+    transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .project-meta {
-    font-size: 0.7em;
+    font-size: 0.8em;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     white-space: nowrap;
+    text-align: center;
+    opacity: 0.85;
+}
+
+
+/* Hover overlay */
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(ellipse at center,
+            rgba(0, 0, 0, 0.28) 0%,
+            rgba(0, 0, 0, 0.22) 40%,
+            rgba(0, 0, 0, 0.14) 60%,
+            rgba(0, 0, 0, 0.06) 75%,
+            rgba(0, 0, 0, 0.0) 90%),
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.12) 0%,
+            rgba(0, 0, 0, 0.18) 50%,
+            rgba(0, 0, 0, 0.12) 100%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    backdrop-filter: blur(2px);
+}
+
+.project-overlay-inner {
+    text-align: center;
+}
+
+.project-title {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.project-subtitle {
+    margin-top: 6px;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.project-card:hover .project-overlay,
+.project-card-fix:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .project-media img,
+.project-card-fix:hover .project-media img {
+    transform: scale(1.06);
+    opacity: 0.95;
+}
+
+.project-card:focus-visible,
+.project-card-fix:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 6px;
+}
+
+.project-card:focus-visible .project-overlay,
+.project-card-fix:focus-visible .project-overlay {
+    opacity: 1;
 }
 
 .projects-bg-text {
