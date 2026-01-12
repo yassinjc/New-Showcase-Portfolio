@@ -544,7 +544,7 @@ p {
 }
 
 
-/* Ar-Jane Project */
+/* Project Pages */
 .project {
   position: relative;
   color: white;
@@ -553,6 +553,34 @@ p {
 
 .project-arjane {
   background-image: url("assets/ar-jane-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+}
+
+.project-ethics {
+  background-image: url("assets/ethics-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+}
+
+.project-rayshree {
+  background-image: url("assets/rayshree-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+}
+
+.project-equine {
+  background-image: url("assets/equine-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+}
+
+.project-musicvid {
+  background-image: url("assets/video-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 20%;
@@ -626,6 +654,10 @@ p {
   letter-spacing: 0.15em;
   color: white;
   font-weight: 600;
+  text-shadow:
+    0 0px 12px rgba(0, 0, 0, 0.9),
+    0 0px 28px rgba(0, 0, 0, 0.75),
+    0 0px 48px rgba(0, 0, 0, 0.9);
 }
 
 .project-mid {
