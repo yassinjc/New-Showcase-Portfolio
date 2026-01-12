@@ -68,7 +68,7 @@
 
             <p>
                 As a 21-year-old IT & Media Design student, I explore how UX, UI
-            and visual storytelling can shift tone,
+                and visual storytelling can shift tone,
                 mood, and meaning.
             </p>
 
@@ -189,31 +189,36 @@
 
             <div class="contact-grid">
 
-                <form class="contact-form" action="#" method="post">
+                <form class="contact-form" action="https://formspree.io/f/xqeekpzq" method="POST">
+
                     <div class="field">
                         <span class="field-corner"></span>
-                        <input type="text" placeholder="NAME..." />
+                        <input type="text" name="name" placeholder="NAME..." required />
                         <span class="field-bracket"></span>
                     </div>
 
                     <div class="field">
                         <span class="field-corner"></span>
-                        <input type="email" placeholder="EMAIL..." />
+                        <input type="email" name="email" placeholder="EMAIL..." required />
                         <span class="field-bracket"></span>
                     </div>
 
                     <div class="field field--textarea">
                         <span class="field-corner"></span>
-                        <textarea placeholder="MESSAGE..."></textarea>
+                        <textarea name="message" placeholder="MESSAGE..." required></textarea>
                         <span class="field-bracket"></span>
                     </div>
+
+                    <input type="hidden" name="_subject" value="New portfolio message" />
 
                     <button class="send" type="submit">SEND MESSAGE</button>
 
                     <span class="form-bracket form-bracket--top"></span>
                     <span class="form-bracket form-bracket--mid"></span>
                     <span class="form-bracket form-bracket--bot"></span>
+                    
                 </form>
+
 
                 <div class="contact-options">
                     <a class="contact-link" href="mailto:yassinjustin551@gmail.com">
