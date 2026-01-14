@@ -67,6 +67,60 @@ body {
   font-style: normal;
   color: white;
   user-select: none;
+  opacity: 0;
+  transition: opacity 80ms linear;
+}
+
+
+/* Glitch Animatie */
+.name::before,
+.name::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: white;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.name.glitch::before {
+  opacity: 0.9;
+  clip-path: inset(0 0 55% 0);
+  animation: glitchA 120ms steps(2) infinite;
+}
+
+.name.glitch::after {
+  opacity: 0.9;
+  clip-path: inset(45% 0 0 0);
+  animation: glitchB 100ms steps(2) infinite;
+}
+
+@keyframes glitchA {
+  0% {
+    transform: translate(-24px, -10px) skewX(-8deg);
+  }
+
+  50% {
+    transform: translate(18px, 12px) skewX(10deg);
+  }
+
+  100% {
+    transform: translate(-12px, 6px) skewX(-6deg);
+  }
+}
+
+@keyframes glitchB {
+  0% {
+    transform: translate(20px, 14px) skewX(8deg);
+  }
+
+  50% {
+    transform: translate(-26px, -8px) skewX(-10deg);
+  }
+
+  100% {
+    transform: translate(12px, 10px) skewX(6deg);
+  }
 }
 
 
@@ -123,6 +177,113 @@ p {
   color: white;
   font-weight: 600;
 }
+
+
+/* Navbar Transitie */
+nav ul li:not(:first-child) {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+nav ul.nav-in li:not(:first-child) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Badge Glitch */
+.badge {
+  position: relative;
+}
+
+.badge img {
+  width: 5.8vw;
+  height: auto;
+  display: block;
+  transform: translateY(-2.4vh);
+}
+
+.badge.badge-glitch {
+  opacity: 0;
+  transition: opacity 80ms linear;
+}
+
+.badge::before,
+.badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/parental-badge.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-2.4vh);
+}
+
+.badge.badge-glitch.glitch::before {
+  opacity: 0.9;
+  clip-path: inset(0 0 55% 0);
+  animation: badgeSliceA 120ms steps(2) infinite;
+}
+
+.badge.badge-glitch.glitch::after {
+  opacity: 0.9;
+  clip-path: inset(45% 0 0 0);
+  animation: badgeSliceB 100ms steps(2) infinite;
+}
+
+.badge.badge-glitch.glitch img {
+  animation: badgeFlicker 140ms steps(2) infinite;
+}
+
+@keyframes badgeFlicker {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  40% {
+    opacity: 0.55;
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0.4px);
+  }
+}
+
+@keyframes badgeSliceA {
+  0% {
+    transform: translateY(-2.4vh) translate(-10px, -6px);
+  }
+
+  50% {
+    transform: translateY(-2.4vh) translate(12px, 8px);
+  }
+
+  100% {
+    transform: translateY(-2.4vh) translate(-6px, 4px);
+  }
+}
+
+@keyframes badgeSliceB {
+  0% {
+    transform: translateY(-2.4vh) translate(10px, 8px);
+  }
+
+  50% {
+    transform: translateY(-2.4vh) translate(-14px, -4px);
+  }
+
+  100% {
+    transform: translateY(-2.4vh) translate(6px, 6px);
+  }
+}
+
 
 /* About Me */
 .about {
